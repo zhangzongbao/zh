@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    
+    <script>
+
+// prompt   页面显示一个输入框
+
+ // 基本数据类型  number  string  boolean  undefinde  null 
+
+ //NaN "" undefined null false 0  这几个转换是为 false  其他都是true
+
+// undefined 表示一个声明了但是没有赋值的变量  null表示一个空对象 undefined派生自null   undefined == null 是 true  undefined===null 是false
+
+// 数值转换  typeof    typeof(val) 返回一个数值类型  转换undefined返回的是 undefined  如果是null 返回的是 object 这是个bug
+
+//转换成字符串类型
+            //toString() 把一个数字类型转换成为一个字符串类型   列如： var b = toString(a) 只能给变量使用。  undefined 和null 没有 toString()方法。
+            //String() 把一个数字类型转换成为一个字符串类型
+            //任意一个类型数据和字符串相加结果都是字符串     列如：var a = 1;  a + ""
+
+//显示转换成为数字  
+            //var a = "123"
+            // Number()   Number(a) 
+            // 总体看下是否是个合法的数字，是就转换， 如果不是转换成为 NaN
+
+            //parseInt()   
+            //var a = "123abc"  得到 123 从第一个可以识别的数字到最后一个可以识别的数字 
+            //var a = '123.789' 得到 123 只保留整数位，舍弃小数位。
+
+            //parseFloat()  
+            //var a = '123.456' 保留小数位， var a = '123.456abc'  abc会被舍弃
+
+//隐式转换
+            // 字符串和数字做运算  除了加法是将数字转换成为字符串以外，其他都是将字符串转换成为数字
+
+            // console.log(28 % 3)  1 
+
+// 赋值运算符  = 是赋值  简写：var a = 10; a += 2 等于 a = a + 2; 
+
+//自增自减运算
+            // var a = 1;  a++先赋值后自增  ++a先自增后赋值
+
+//比较运算符  
+            // == 比较2个值是否相等  === 比较2个值是否相等 并且比较类型   
+
+//逻辑运算符 
+            // ||  或运算  有一个为true就取true。 2分都是 false  那么得到的是 false，如果所有的值都是false  那么会取最后一个值
+            // && 且运算   有一个为false就取false  2个都是true 那么得到的是 true  如果都是true 那么会取最后一个值
+            // 取值的使用：
+            // ! 取反
+
+// if  else 使用
+            // if(判断条件) {
+
+            // }else {
+
+            // }
+
+// if  else  if 使用
+            // if(判断条件) {
+
+            // }else if {
+
+            // }else if {
+
+            // }else {
+
+            // }
+
+// switch  case 的使用
+                //     case 0:
+                //     break;
+
+                //     case 2:
+                //     break;
+
+                //     default:
+                    
+                // }
+                //break作用：  当满足其中一个条件时，后续的就不会再判断。
+
+
+// 三元表达式   
+                // let a = num1>nu2?num1:num2 
+                //  条件为true时候取 num1  为false时取 num2
+
+// while 循环
+                // while(判断条件){
+                //     内容
+                // } 
+
+// for 循环
+                // for (let i = 0; i < array.length; i++) {
+                //     内容
+                    
+                // }
+
+                // break  countinue   用于循环语句   break 可以用在 switch里面和循环里面，跳出整个循环 结束循环， countinue只能用在循环里面 跳出当前循环，继续下个循环
+
+//数组
+                //数组的下标从0开始，取值：arr[0];
+                //使用构造函数创建数组 let arr = new Array();  用的不多。 let arr = new Array(12);这里的12 表示数组的长度是12。let arr = new Array("12");这个是数组里有一个元素是字符串的12.
+                //使用字面量创建数组： let arr = [12];  用的多。 这个12是数组里有一个元素是12.
+                //arr.length  获取数组的长度。
+   
+//数组的遍历
+                // for(let i = 0; i < arr.length; i++) {
+                    
+                // }
+
+//冒泡排序
+                /* let arr1 = [1,2,4,5,7,8,9,3,6];
+                    for(var i = arr1.length-1; i >= 0; i--) {
+                        for(var j = 0; j < i; j++) {
+                            if(arr1[j] > arr1[j+1]) {
+                                let temp = arr1[j];
+                                arr1[j]= arr1[j+1];
+                                arr1[j+1] = temp;
+                            }
+                        }
+                    }
+                console.log(arr1);*/
+
+//函数的声明  
+                /* function fn() {}   (a,b)这里的a,b是形参  需要调用   调用fn(1,2) 1，2是实参
+                函数的返回值， return 。如果一个函数没有明确的返回值，那么返回的会是undefined。*/
+
+
+// js的函数不能重载
+                    //如果函数同名，那么下面的函数会覆盖上面的函数。
+                    // 函数的实参可以给多个，如果形参和实参个数不想同，那么多余的实参数会存放在 arguments里面。是一个伪数组，
+
+//作用域
+                    // 1全局作用域，在script标签内，函数内都可以访问，2局部作用域也就是函数作用域，函数内部声明的局部变量，外部是不可以访问的。
+                    // 隐式全局变量，  在函数里  未使用var声明的变量函数外部可以访问到。称为隐式全局变量。
+
+//预解析
+                    //规则，在当前作用域里先提前变量的声明 var 
+                    //提前声明function。
+                    // 变量只会提前声明，不会赋值。函数只会提前声明。不会调用。 
+
+//匿名函数
+                    //  var fn = function(){}  匿名函数调用必须在函数的下面。
+                    // 匿名自调用函数，(function(){}){}
+
+//递归函数    function fn() { 内容   fn()}  fn()  外部调用，内部再次调用， 递归必须给个出口。在内部调用前面加个判断用于结束递归。
+
+                    // function getSum(n) {
+                    //     if(n == 1) {
+                    //         return 1;
+                    //     }
+                    //     console.log(n)
+                    //     return n + getSum(n-1)
+                    // }
+                    // console.log(getSum(6))
+
+
+//对象的使用
+                        //创建一个对象   var obj = new Object()  字面量创建   var obj = {}  常用！
+                        //this代表当前调用对象自身。指向当前对象。this只能出现在函数内。 如果不在函数里那么this代表 window。
+//json对象
+                        // 一种轻量的数据格式。 JSON.parse() 把json格式转换成对象形式  JSON.stringify()把对象格式转成为json格式 
+
+// 获取复杂数据类型 
+                        // 1：obj.constructor.name 可以获取， 2：arr=[]。 arr instanceof Array  instanceof用于判断arr是否是Array类型
+
+// new 做了什么？     1 调用构造函数。2 会申请一个新的内存空间。3 会把申请好的内存空间返回。4 会把构造函数里的this指向新申请的内存空间。
+
+//操作对象属性   1 . 语法。2 []语法。[]语法取值需要加引号['name']
+
+//遍历对象   
+                        //
+
+
+
+    </script>
+</body>
+</html>

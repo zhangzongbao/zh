@@ -1,0 +1,14 @@
+一：CORS方式：使用场景：自己的项目才可以用，需要后端做配置才可以。
+'Access-Control-Allow-Origin','*'  
+
+二：JSONP ： react里的 fetch JSONP  需要安装包， fetch-Jsonp  用法和fetch一样。劣势只能发送get请求。
+
+三：反向代理，由浏览器发送请求到本地服务器，本地服务器再帮我们去请求真正的数据，本地服务器再把数据返回给浏览器。
+proxy:{
+'/api':{
+target:'url地址'
+secure: false
+changeOrigin:true
+pathRewrite:{'^/api':''}
+}
+}
