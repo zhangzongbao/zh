@@ -180,7 +180,62 @@
 //操作对象属性   1 . 语法。2 []语法。[]语法取值需要加引号['name']
 
 //遍历对象   
-                        //
+                        // for(var k in obj){x是键 obj[k]是值}
+
+//js的内置对象  Math   String  Array  Date
+
+                        //Date 的使用
+                        var date = new Date() //获取当前时间和日期
+                        // date.toLocaleString() //
+                        date.getFullYear()//  获取到年
+                        date.getMonth()+1 // 月份从0开始  所以加1
+                        data.getDate() // 月
+                        data.getDay()//星期
+                        date.getHours() //时
+                        date.getMinutes()//分
+                        date.getSeconds()//秒
+                        date.getMilliseconds()//毫秒
+
+
+                        // Array
+                        Array.isArray(arr) //判断arr是不是一个数组。返回布尔值
+                        var arr = ['df','dfd','egee']
+                        arr.join('|')  //返回值是一个字符串。里面每个元素都用|分隔。原数组不会改变。如果不给参数默认使用逗号分隔
+                        unshift() //向数组最前面插入一个元素。返回值是新数组的长度。
+                        shift() // 删除数组里第0个元素，返回值是被删除的元素。
+                        push()//向数组最后面添加一个值。返回值是插入的值。
+                        pop() //删除数组最后一个值，返回值是被删除的值。
+                        reverse() //把一个数组里的值倒序排列， 返回值是已经倒序排列的数组，原数组被改变。
+                        sort()//数组排序，sort(function(a,b){return a-b}) a-b正序  b-a 倒序。
+
+                        // 数组的拼接和截取
+                        concat()//合并数组。不会改变原有数组。返回一个新的数组。
+                        splice()// 参数1代表开始删除的下标，参数2代表删除的个数，参数3代表删除后再进行添加。会改变原有的数组。从下标前面插入元素。
+                        slice(1,3)//从原有的数组里复制一部分，返回一个新的数组。不包含结束下标。 
+                        indexOf()//查找元素第一次出现的位置，如果数组里没有这个元素就会返回 -1.
+                        listIndexOf()// 查找元素最后一次出现的位置。如果没有返回 -1.
+
+
+                        //字符串方法使用
+                        indexOf()
+                        lastIndexOf()
+                        trim()//去除字符串两端的空格。
+                        toUpperCase() //大写
+                        toLowerCase() //小写
+                        concat()//合并字符串。不建议使用。。没有直接 str1 + str2  直接加方便。
+                        slice(2,4)// 从2截取到4的位置。截取2个元素。
+                        substr(2,4)// 从2的位置截取4个元素。
+                        split() //把一个字符串替换成为数组。
+                        replace('1','x')// 把1替换成 x。
+
+                        
+
+
+                         
+
+
+
+
 
 
 

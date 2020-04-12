@@ -1,4 +1,0 @@
-1，全局安装  npm install -g create-react-app
-2，create-react-app my-app   my-app是文件夹名字，可以随意取
-3，cd my-app   切换到my-app这个文件夹中
-4，npm start 启动项目
