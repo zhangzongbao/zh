@@ -3,9 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>web-api笔记</title>
 </head>
 <body>
+    <div id="box"></div>
+    <div id="box1"></div>
+    <div class="box2"></div>
     
+    <script>
+        
+        var id = document.getElementById('box');//获取id。常用
+        console.log(id);
+        
+        var box1 = document.getElementsByTagName('box1');// 返回的是个伪数组。常用
+        console.log(box1);
+        
+        var box2 = document.getElementsByClassName('box2');// 通过class类名获取 ie9以上支持
+
+        var q = document.querySelector('#box'); //通过id获取。  建议使用， ie8以上
+        var qq = document.querySelectorAll('.box') // 获取所有类名为 box的元素。 建议使用
+
+
+        // 事件
+         a.onclick=function(){} //点击事件
+        onfocus //获取焦点
+
+
+
+
+
+    </script>
 </body>
 </html>
