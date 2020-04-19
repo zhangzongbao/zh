@@ -9,25 +9,261 @@
     <div id="box"></div>
     <div id="box1"></div>
     <div class="box2"></div>
+
+
     
     <script>
         
         var id = document.getElementById('box');//获取id。常用
         console.log(id);
         
-        var box1 = document.getElementsByTagName('box1');// 返回的是个伪数组。常用
-        console.log(box1);
+        var div = document.getElementsByTagName('div');// 通过标签名称获取，返回的是个伪数组。常用
+        console.log(div);
         
         var box2 = document.getElementsByClassName('box2');// 通过class类名获取 ie9以上支持
+        console.log(box2);
+        
 
-        var q = document.querySelector('#box'); //通过id获取。  建议使用， ie8以上
+        var q = document.querySelector('#box'); //获取id为box的元素  建议使用， ie8以上
         var qq = document.querySelectorAll('.box') // 获取所有类名为 box的元素。 建议使用
 
 
-        // 事件
-         a.onclick=function(){} //点击事件
-        onfocus //获取焦点
+// 鼠标事件
+        //  onclick //点击事件
+        // box.onclick = function() {}
+        // box.addEventListener('click',fn, false) 参数1：事件类型，参数2：触发时执行的函数，参数3：控制这个函数执行阶段,false冒泡阶段，true反之。
+        // function fn(){}
+        // 移出点击事件  box.removeEventListener('click',fn,false)
+        //优势：推荐使用，可以注册多个事件。
+        //attachEvent //解决addEventListener的兼容问题。
 
+        // onfocus 获取焦点事件
+        // onblur  失去焦点事件
+        // onchange  元素状态发生改变， 复选框，下拉框，单选框等等可用
+        // onmouseover  鼠标移入事件   onmouseenter  移入  推荐使用
+        // onmouseout   鼠标移出事件   onmouseleave  移出
+        // onmousemove  鼠标移动事件
+        // onmousedown 鼠标按下事件
+        // onmouseup 鼠标松开事件
+
+
+
+//阻止a标签的默认跳转
+        // return false; //可以阻止a标签的默认跳转。
+        // javascript:void(0) 给href 加上这代码也行，void没有返回值，什么都不干，原理就是我要执行js代码，但是我js做的事情就是什么都不做。
+        // 通过事件对象： e.preventDefault().
+
+
+//文本框禁用    disabled
+ 
+// 通过className 加样式的时候会覆盖原有的class类名 解决方法：box.className += ' box',留一个空格。不然会把2个类名拼接到一起了。
+
+//自定义属性
+        //是标签上的属性并且是非HTML标准的。
+// 获取元素上自定义属性的值   getAttribute('属性名') 
+//设置一个值  setAttribute('属性名','属性值') 
+//删除标签的自定义值  removeAttribute('属性名')
+
+// innerText  会覆盖原来的内容
+// innerHTML  可以设置HTML结构
+
+//创建元素的三种方式
+//innerHTML  会覆盖原来的内容。 用法：document.body.innerTHML = '<p>内容</p>'
+//document.write() 在原来的基础上继续书写，不会覆盖，用法：document.write('内容')
+//document.createElement() 用法：let p = document.createElement('p'),p.innerText = '内容'。创建后需要添加到父级标签里  document.body.appendChild(p)。
+
+
+//节点
+
+// parentNode  获取父节点。
+//childNodes 获取所有的子节点。
+//children  所有子元素。
+
+// firstChild  父元素下的第一个子节点。
+// firstElementChild 父元素下的第一个子元素。
+// lastChild  父元素下的最后一个子节点。
+// lastElementChild 父元素下的最后一个子元素。
+
+// appendChild(元素) 添加。
+// removeChild(元素) 删除。
+// cloneNode()  克隆，如果不传参数只克隆当前节点本身，如果传入true 克隆当前元素所有内容。
+// insertBefore(div,p) 参数1是新节点， 参数2是参考节点,把div插入到p的前面。注意：如果第一个参数已经在页面中，那么会有一个剪切的效果。
+// replaceChild() 参数1：替换的节点，参数2：被替换的节点。也有剪切的效果。
+
+
+//事件冒泡和委托
+        //事件触发有冒泡阶段和捕获阶段，通过addEventListener的第三个参数为true或false来控制在冒泡阶段执行还是捕获阶段执行。
+        //事件委托：通过给父级注册事件，在冒泡阶段下子级都会触发，再通过事件对象 e 获取到当前点击的是哪一个元素。
+
+    //兼容性问题
+        // ie8不会给传递 事件对象 e， 需要用 window.event获取。srcElement   没有target。
+
+    //阻止事件传播   e.stopPropagation()。
+
+// 获取鼠标的坐标
+
+    // document.onmousemove = function(e){
+        // e = e || window.enent;
+        // console.log(e)
+        // e.clientX  可视窗口的水平坐标
+        // e.clientY  可视窗口的垂直坐标
+    // }
+
+    // pageX   鼠标在页面中的水平坐标
+    // pageY   鼠标在页面中的垂直的坐标
+
+    // scrollTop  是垂直方向滚动的距离
+    // scrollTop  水平方向
+
+//键盘事件   onkeydown  按下   onkeyup 松开  获取按下的是哪个键 event.keyCode
+
+// window 下的name属性和top属性
+        // 不要在全局使用这2个变量。
+
+        // window.onload = function(){}  当页面中所有资源加载完毕。
+
+//定时器
+        // setTimeout(function(){},1000)   1秒后执行 只会执行一次。会返回一个值，返回值用于清楚定时器。
+        // setInterval(() => {}, 100); 每隔1秒执行一次。
+        // clearInterval  这2个方法用于清除定时器。
+        // clearTimeout  
+
+//解决多个定时器的问题， 先清除
+
+//location 对象
+        // href 后面跟url地址，跳转作用
+        // assign() 参数也是url地址，跳转作用
+        // replace() 同上，但是不会记录历史，没有返回
+        // history.back()  返回到上一个页面
+        // history.forward() 向前一个页面
+        // history.go(1) 同back
+        // history.go(-1) 
+
+        // navigator.userAgent 获取浏览器版本，等等，场景：用这个可以判断是电脑请求的还是手机请求的。
+
+        //location.reload()  从新加载  等于刷新，可以给个参数 true。
+
+        // url
+
+// offsetParent   offsetWidth  offsetHeight offsetLeft  offsetTop
+
+// offsetParent  获取的是父级元素
+// offsetWidth  获取的是：内容+边框+内边距
+// offsetLeft 距离定位父级的左偏移量
+// offsetTop 距离父级的上偏移量
+
+// clientWidth  clientHeight  clientLeft  clientTop
+//clientWidth  内容+内边距
+//clientLeft  元素左边框的宽度
+
+// scrollWidth  scrollHeight  scrollLeft  scrollTop
+// scrollWidth  内容 + padding - 滚动条宽度 
+// scrollHeight 整个内容高度
+// scrollLeft 内容在水平方向滚动的距离
+// scrollTop 内容在垂直方向滚动的距离
+
+
+
+
+
+
+
+
+// ===================================高级部分===============================================
+
+// 创建一个构造函数
+// function Add(name,age) {
+//         this.name = name;
+//         this.age = age;
+//     }
+
+//  把方法函数绑定到构造函数的原型上,这样可以防止 全局同名污染.
+//     Add.prototype.fn = function() {
+//         console.log(222);
+//     }
+
+//     let obj = new Add('aaa',11);  这个obj 就是 add构造函数的实例
+//     console.log(obj);  
+//     console.log(obj.name);  zz
+//     console.log(obj.fn());  222
+
+// 构造函数--原型对象--实例-之间的关系
+// 构造函数通过prototype可以找打自己的原型对象,原型对象上有个 cunstructor 又可以指向构造函数.
+// 实例有个 __proto__ 指向构造函数的原型对象.  是一个非标准属性,生产环境下不建议使用.
+
+// 对象中查找属性的规则: 如果自己没有会去构造函数原型对象上继续找,如果有就返回,如果没有,会继续找 直到返回null为止.
+
+
+//简洁方式  
+//    function Person() {
+//        this.name='name';
+//        this.age = 'age';
+//    }
+//    Person.prototype = {
+//        constructor: Person,    这种方法会导致原型对象的 constructor 丢失,需要手动加上就可.
+//        sanName: function() {},
+//        sanName1: function() {},
+//        sanName2: function() {}
+//    }
+
+//    let son = new Person('aa',11);
+
+// 注意: 如果自调用函数和其他代码有关联.或者自调用后面还有自调用函数,一定要用分号结束.
+
+// 原型链
+// hasOwnProperty  : 判断当前实例的属性是不是自己本身拥有的.
+
+// instanceof 用于判断复杂数据类型. 
+
+// 深拷贝方法
+// function deepCopy(obj) {
+//         var objArray = Array.isArray(obj) ? [] : {};
+//         if(obj && typeof obj === "object") {
+//             for(key in obj) {
+//                 if(obj.hasOwnProperty(key)){
+//                     if(obj[key] && typeof obj[key] === "object"){
+//                         objArray[key] = deepCopy(obj[key]);
+//                     } else {
+//                         objArray[key] = obj[key];
+//                     }
+//                 }
+//             }
+//         }
+//         return objArray;
+//     }
+
+// 最简单的方法   
+// let newArr = JSON.parse(JSON.stringify(arr))
+
+
+//call() 方法 方法里的第一个参数 传谁对应的这个方法调用时里面的this就指向谁
+
+//继承的三种方法   拷贝继承--原型继承--借用构造函数
+// 扩展   var newObj = Object.create(参考对象)  
+
+// function fn(){}  函数声明会提升
+
+// var fn1 = function(){}  函数表达式不会提升 提升的是变量
+
+// var fn2 = new Function('x','y','console.log(x+y)')  实际开发不用, 函数也是一个对象 都是 Function的实例.
+
+// 函数的四种调用模式
+//  普通函数调用
+//  function fn(){}  fn() this指向 window
+//  构造函数调用
+//  function Person(){}  new Person()  this 指向实例
+//  对象的方法调用
+//  var obj = {}  this  指向的是对象
+//  obj.say = function(){
+
+//  }
+//  上下文调用
+// call  传递参数
+// apply 传递参数必须用数组才可以
+// bind  接受一个新的返回函数  新的返回函数的this指向传递的参数的this
+
+
+// 闭包
 
 
 
